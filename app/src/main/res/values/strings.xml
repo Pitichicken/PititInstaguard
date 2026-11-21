@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PititInstaguard</string>
+    <string name="service_description">Bloque Instagram sauf les messages privés et les publications enregistrées. Lit uniquement la structure des écrans d\'Instagram pour savoir quel onglet est ouvert.</string>
+</resources>
