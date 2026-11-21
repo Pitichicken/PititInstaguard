@@ -85,7 +85,7 @@ class InstaGuardService : AccessibilityService() {
 
         when {
             !isBlocked -> hideOverlay()
-            tab!=null -> showOverlay(bounds.top) // leave the tab bar tappable
+            tab!=null -> showOverlay(bounds.top - dpToPx(TAB_BAR_MARGIN_DP)) // leave the tab bar tappable // leave the tab bar tappable
             else -> {
                 hideOverlay()
                 val now=System.currentTimeMillis()
@@ -141,6 +141,7 @@ class InstaGuardService : AccessibilityService() {
     }
 
     // Overlay
+    private fun dpToPx(dp: Int): Int = (dp * resources.displayMetrics.density).toInt()
 
     private fun showOverlay(heightPx: Int) {
         if (heightPx <= 0) return
@@ -186,5 +187,6 @@ class InstaGuardService : AccessibilityService() {
         const val INSTAGRAM_PACKAGE="com.instagram.android"
         const val DEBOUNCE_MS=120L
         const val BACK_COOLDOWN_MS=600L
+        const val TAB_BAR_MARGIN_DP=30
     }
 }
